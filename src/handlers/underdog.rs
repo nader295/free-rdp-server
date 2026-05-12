@@ -231,7 +231,7 @@ pub async fn callback_handler(
             // repos.mentorships.create(mentor_id, mentee_id, chat_id).await?;
             
             let text = t!("commands.underdog.mentor_accept", locale = &lang_code, 
-                mentor_name = mentor.name);
+                mentor_name = mentor.name.to_string());
             
             CallbackResult::EditMessage(text.to_string(), None).apply(bot, query).await?;
         }
